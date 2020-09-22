@@ -1,0 +1,14 @@
+<template>
+	<table border="1" onclick={onTableClick} oncustomclick={onTableCustomClick}>
+		<tr>
+			<th>Level</th>
+			<td>{level}</td>
+		</tr>
+		<tr onclick={onRowClick} oncustomclick={onRowCustomClick}>
+			<th>Children</th>
+			<td class="slds-var-p-around_medium" onclick={onCellClick} oncustomclick={onCellCustomClick}>
+				<c-level03 onclick={onComponentClick} oncustomclick={onComponentCustomClick}></c-level03>
+			</td>
+		</tr>
+	</table>
+</template>
