@@ -26,10 +26,11 @@ export default class Level05 extends LightningElement {
 		} else {
 			source = this;
 		}
+		console.log("=== === === === ===");
 		source.dispatchEvent(
 			new CustomEvent("customclick", {
-				bubbles: this.composed,
-				composed: this.bubbles,
+				bubbles: this.bubbles,
+				composed: this.composed,
 				detail: { source, bubbles: this.composed, composed: this.bubbles, fromButton: this.fromButton }
 			})
 		);
