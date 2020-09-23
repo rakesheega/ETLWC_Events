@@ -1,38 +1,54 @@
+import { showLog } from "c/utils";
 import { LightningElement } from "lwc";
 
 export default class Level05 extends LightningElement {
+	bubbles = true;
+	composed = true;
+	fromButton = true;
 	level = `Level #5`;
+
+	onBubblesChange(event) {
+		this.bubbles = event.target.checked;
+	}
+
+	onComposedChange(event) {
+		this.composed = event.target.checked;
+	}
+
+	onFromBottomChange(event) {
+		this.fromButton = event.target.checked;
+	}
+
 	onButtonClick(event) {
-		event.stopPropagation();
-		console.log(`Button Clicked: ${this.level}`);
-		event.target.dispatchEvent(new CustomEvent("customclick", { bubbles: true, composed: true, detail: "TEST" }));
+		let source;
+		if (this.fromButton) {
+			source = event.target;
+		} else {
+			source = this;
+		}
+		console.log("=== === === === ===");
+		source.dispatchEvent(
+			new CustomEvent("customclick", {
+				bubbles: this.bubbles,
+				composed: this.composed,
+				detail: { source, bubbles: this.composed, composed: this.bubbles, fromButton: this.fromButton }
+			})
+		);
 	}
 
-	onCellClick() {
-		console.log(`Cell Clicked: ${this.level}`);
+	onComponentCustomClick(event) {
+		showLog("COMPONENT", this.level, event);
 	}
 
-	onRowClick() {
-		console.log(`Row Clicked: ${this.level}`);
+	onCellCustomClick(event) {
+		showLog("CELL", this.level, event);
 	}
 
-	onTableClick() {
-		console.log(`Table Clicked: ${this.level}`);
+	onRowCustomClick(event) {
+		showLog("ROW", this.level, event);
 	}
 
-	onButtonCustomClick() {
-		console.log(`Button Custom Clicked: ${this.level}`);
-	}
-
-	onCellCustomClick() {
-		console.log(`Cell Custom Clicked: ${this.level}`);
-	}
-
-	onRowCustomClick() {
-		console.log(`Row Custom Clicked: ${this.level}`);
-	}
-
-	onTableCustomClick() {
-		console.log(`Table Custom Clicked: ${this.level}`);
+	onTableCustomClick(event) {
+		showLog("TABLE", this.level, event);
 	}
 }
