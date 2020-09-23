@@ -1,4 +1,4 @@
-export const showLog = (STD_CUSTOM, target, level) => {
+export const showLog = (STD_CUSTOM, target, level, event) => {
 	let msg = "";
 
 	if (STD_CUSTOM === "CUSTOM") {
@@ -10,7 +10,7 @@ export const showLog = (STD_CUSTOM, target, level) => {
 		alert("ERROR");
 	}
 
-	["BUTTON", "CELL", "ROW", "TABLE"].forEach((tmp) => {
+	["COMPONENT", "CELL", "ROW", "TABLE"].forEach((tmp) => {
 		if (tmp === target) {
 			msg += tmp;
 		} else {
@@ -20,7 +20,9 @@ export const showLog = (STD_CUSTOM, target, level) => {
 
 	msg += `| ${level}`;
 
+	msg += ` | ${event.detail.bubbles ? "BUBBLES" : "_".repeat("BUBBLES".length)} `;
+	msg += ` | ${event.detail.composed ? "COMPOSED" : "_".repeat("COMPOSED".length)}`;
+	msg += ` | FROM_${event.detail.fromButton ? "BUTTON___" : "COMPONENT"}`;
+
 	console.log(msg);
 };
-
-// export { showLog };

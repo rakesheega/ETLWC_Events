@@ -4,39 +4,39 @@ import { LightningElement } from "lwc";
 export default class Level00 extends LightningElement {
 	level = `Level #0`;
 
-	onButtonClick() {
-		showLog("STD", "BUTTON", this.level);
+	onButtonClick(event) {
+		showLog("STD", "BUTTON", this.level, event);
 	}
 
-	onComponentClick() {
-		showLog("STD", "COMPONENT", this.level);
+	onComponentClick(event) {
+		showLog("STD", "COMPONENT", this.level, event);
 	}
 
-	onCellClick() {
-		showLog("STD", "CELL", this.level);
+	onCellClick(event) {
+		showLog("STD", "CELL", this.level, event);
 	}
 
-	onRowClick() {
-		showLog("STD", "ROW", this.level);
+	onRowClick(event) {
+		showLog("STD", "ROW", this.level, event);
 	}
 
-	onTableClick() {
-		showLog("STD", "TABLE", this.level);
+	onTableClick(event) {
+		showLog("STD", "TABLE", this.level, event);
 	}
 
-	onComponentCustomClick() {
-		showLog("CUSTOM", "COMPONENT", this.level);
+	onComponentCustomClick(event) {
+		showLog("CUSTOM", "COMPONENT", this.level, event);
 	}
 
-	onCellCustomClick() {
-		showLog("CUSTOM", "CELL", this.level);
+	onCellCustomClick(event) {
+		showLog("CUSTOM", "CELL", this.level, event);
 	}
 
-	onRowCustomClick() {
-		showLog("CUSTOM", "ROW", this.level);
+	onRowCustomClick(event) {
+		showLog("CUSTOM", "ROW", this.level, event);
 	}
 
-	onTableCustomClick() {
-		showLog("CUSTOM", "TABLE", this.level);
+	onTableCustomClick(event) {
+		showLog("CUSTOM", "TABLE", this.level, event);
 	}
 }
