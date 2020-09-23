@@ -1,40 +1,42 @@
+import { showLog } from "c/utils";
 import { LightningElement } from "lwc";
 
 export default class Level03 extends LightningElement {
 	level = `Level #3`;
+
 	onButtonClick() {
-		console.log(`Button Clicked: ${this.level}`);
+		showLog("STD", "BUTTON", this.level);
 	}
 
 	onComponentClick() {
-		console.log(`Component Clicked: ${this.level}`);
+		showLog("STD", "COMPONENT", this.level);
 	}
 
 	onCellClick() {
-		console.log(`Cell Clicked: ${this.level}`);
+		showLog("STD", "CELL", this.level);
 	}
 
 	onRowClick() {
-		console.log(`Row Clicked: ${this.level}`);
+		showLog("STD", "ROW", this.level);
 	}
 
 	onTableClick() {
-		console.log(`Table Clicked: ${this.level}`);
+		showLog("STD", "TABLE", this.level);
 	}
 
 	onComponentCustomClick() {
-		console.log(`Component Custom Clicked: ${this.level}`);
+		showLog("CUSTOM", "COMPONENT", this.level);
 	}
 
 	onCellCustomClick() {
-		console.log(`Cell Custom Clicked: ${this.level}`);
+		showLog("CUSTOM", "CELL", this.level);
 	}
 
 	onRowCustomClick() {
-		console.log(`Row Custom Clicked: ${this.level}`);
+		showLog("CUSTOM", "ROW", this.level);
 	}
 
 	onTableCustomClick() {
-		console.log(`Table Custom Clicked: ${this.level}`);
+		showLog("CUSTOM", "TABLE", this.level);
 	}
 }

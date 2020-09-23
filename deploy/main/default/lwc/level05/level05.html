@@ -10,5 +10,50 @@
 				<lightning-button label="Test" variant="brand" onclick={onButtonClick} oncustomclick={onButtonCustomClick}></lightning-button>
 			</td>
 		</tr>
+		<tr>
+			<th>From:</th>
+			<td>
+				<lightning-input
+					type="toggle"
+					label="From"
+					variant="label-hidden"
+					message-toggle-active="button"
+					message-toggle-inactive="component"
+					checked={fromButton}
+					onchange={onFromBottomChange}
+					onclick={onToggleClick}
+				></lightning-input>
+			</td>
+		</tr>
+		<tr>
+			<th>Composed:</th>
+			<td>
+				<lightning-input
+					type="toggle"
+					label="Composed"
+					variant="label-hidden"
+					message-toggle-active="true"
+					message-toggle-inactive="false"
+					checked={composed}
+					onchange={onComposedChange}
+					onclick={onToggleClick}
+				></lightning-input>
+			</td>
+		</tr>
+		<tr>
+			<th>Bubbles:</th>
+			<td>
+				<lightning-input
+					type="toggle"
+					label="Bubbles"
+					variant="label-hidden"
+					message-toggle-active="true"
+					message-toggle-inactive="false"
+					checked={bubbles}
+					onchange={onBubblesChange}
+					onclick={onToggleClick}
+				></lightning-input>
+			</td>
+		</tr>
 	</table>
 </template>
