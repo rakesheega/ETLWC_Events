@@ -1,13 +1,13 @@
 <template>
-	<table border="1" onclick={onTableClick} oncustomclick={onTableCustomClick}>
+	<table border="1" oncustomclick={onTableCustomClick}>
 		<tr>
 			<th>Level</th>
 			<td>{level}</td>
 		</tr>
-		<tr onclick={onRowClick} oncustomclick={onRowCustomClick}>
+		<tr oncustomclick={onRowCustomClick}>
 			<th>Children</th>
-			<td class="slds-var-p-around_medium" onclick={onCellClick} oncustomclick={onCellCustomClick}>
-				<c-level01 onclick={onComponentClick} oncustomclick={onComponentCustomClick}></c-level01>
+			<td class="slds-var-p-around_medium" oncustomclick={onCellCustomClick}>
+				<c-level01 oncustomclick={onComponentCustomClick}></c-level01>
 			</td>
 		</tr>
 	</table>

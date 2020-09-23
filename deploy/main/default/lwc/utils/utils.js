@@ -1,28 +1,22 @@
-export const showLog = (STD_CUSTOM, target, level, event) => {
+const _pad = (msg, length) => {
+	return `${msg}${".".repeat(length - msg.length)}`;
+};
+
+export const showLog = (target, level, event) => {
+	let tmp;
 	let msg = "";
 
-	if (STD_CUSTOM === "CUSTOM") {
-		msg += "______CUSTOM | ";
-	} else if (STD_CUSTOM === "STD") {
-		msg += "STANDARD____ | ";
-	} else {
-		// eslint-disable-next-line no-alert
-		alert("ERROR");
-	}
-
-	["COMPONENT", "CELL", "ROW", "TABLE"].forEach((tmp) => {
-		if (tmp === target) {
-			msg += tmp;
-		} else {
-			msg += "_".repeat(tmp.length);
-		}
-	});
-
+	msg += _pad(target, 10);
 	msg += `| ${level}`;
 
-	msg += ` | ${event.detail.bubbles ? "BUBBLES" : "_".repeat("BUBBLES".length)} `;
-	msg += ` | ${event.detail.composed ? "COMPOSED" : "_".repeat("COMPOSED".length)}`;
-	msg += ` | FROM_${event.detail.fromButton ? "BUTTON___" : "COMPONENT"}`;
+	tmp = `BUBBLES: ${event.detail.bubbles}`;
+	msg += ` | ${_pad(tmp, 15)}`;
+
+	tmp = `COMPOSED: ${event.detail.composed}`;
+	msg += ` | ${_pad(tmp, 15)}`;
+
+	tmp = `FROM_${event.detail.fromButton ? "BUTTON" : "COMPONENT"}`;
+	msg += ` | ${_pad(tmp, 15)}`;
 
 	console.log(msg);
 };

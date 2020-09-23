@@ -1,13 +1,13 @@
 <template>
-	<table border="1" onclick={onTableClick} oncustomclick={onTableCustomClick}>
+	<table border="1" oncustomclick={onTableCustomClick}>
 		<tr>
 			<th>Level</th>
 			<td>{level}</td>
 		</tr>
-		<tr onclick={onRowClick} oncustomclick={onRowCustomClick}>
+		<tr oncustomclick={onRowCustomClick}>
 			<th>Children</th>
-			<td class="slds-var-p-around_medium" onclick={onCellClick} oncustomclick={onCellCustomClick}>
-				<lightning-button label="Test" variant="brand" onclick={onButtonClick} oncustomclick={onButtonCustomClick}></lightning-button>
+			<td class="slds-var-p-around_medium" oncustomclick={onCellCustomClick}>
+				<lightning-button label="Test" variant="brand" onclick={onButtonClick} oncustomclick={onComponentCustomClick}></lightning-button>
 			</td>
 		</tr>
 		<tr>
@@ -21,7 +21,6 @@
 					message-toggle-inactive="component"
 					checked={fromButton}
 					onchange={onFromBottomChange}
-					onclick={onToggleClick}
 				></lightning-input>
 			</td>
 		</tr>
@@ -36,7 +35,6 @@
 					message-toggle-inactive="false"
 					checked={composed}
 					onchange={onComposedChange}
-					onclick={onToggleClick}
 				></lightning-input>
 			</td>
 		</tr>
@@ -51,7 +49,6 @@
 					message-toggle-inactive="false"
 					checked={bubbles}
 					onchange={onBubblesChange}
-					onclick={onToggleClick}
 				></lightning-input>
 			</td>
 		</tr>
